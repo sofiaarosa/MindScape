@@ -145,12 +145,17 @@ public class GameController : MonoBehaviour
 
     public void updateMemoriesCollected(Dictionary<int, int> goals, Dictionary<int, int> memories)
     {
+    	int count = 0;
         collected = memories;
         goal = goals;
         for (int i = 0; i < memoriesCounters.Count; i++)
         {
             memoriesCounters[i].text = memories[i].ToString() + "/" + goals[i].ToString();
+            
+            if(memories[i] >= goals[i]) count++;
         }
+        
+        if(count == memories.Count) FinishGame(true);
     }
 
     public void updateCharacter(int characterIndex)
@@ -287,6 +292,7 @@ public class GameController : MonoBehaviour
     }
 
     public void FinishGame(bool win = false){
+    	PlayerStatus.hasGoal = false;
         if(win){
             Debug.Log("You Win!");
             int score = CalculateScore();

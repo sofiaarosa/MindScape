@@ -47,8 +47,6 @@ public class PlayerStatus : MonoBehaviour
     public static bool hasGoal = false;
 
     public void Start(){
-        Health = MAX_HEALTH;
-        Speed = MAX_SPEED;
 
         // sorteia um número aleatório entre 0 e 10 para o objetivo de cada memoria
         if(!hasGoal){

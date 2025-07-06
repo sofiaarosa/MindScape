@@ -57,6 +57,8 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+    	PlayerStatus.Health = PlayerStatus.MAX_HEALTH;
+    	PlayerStatus.Speed = PlayerStatus.MAX_SPEED;
         //inicializa o slider de vida
         healthSlider.maxValue = PlayerStatus.MAX_HEALTH;
         healthSlider.value = PlayerStatus.Health;
